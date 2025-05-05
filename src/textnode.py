@@ -1,15 +1,18 @@
 from enum import Enum
 
 class TextType(Enum):
-    TEXT = 'text'
-    BOLD = 'bold'
-    ITALIC = 'italic'
-    CODE = 'code'
+    TEXT = ''
+    BOLD = '**'
+    ITALIC = '_'
+    CODE = '`'
     LINK = 'link'
     IMAGE = 'image'
 
+def get_text_type_from_delimiter(delimiter):
+    return next((v for k, v in TextType.__members__.items() if v.value == delimiter), None)
+
 class TextNode:
-    def __init__(self, text, text_type, url = None):
+    def __init__(self, text, text_type = TextType.TEXT, url = None):
         self.text = text
         self.text_type = text_type
         self.url = url
