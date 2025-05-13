@@ -1,5 +1,6 @@
 from src.textnode import TextType, TextNode, get_text_type_from_delimiter
 from src.htmlnode import ParentNode, LeafNode
+import re
 
 def text_node_to_html_leaf_node(text_node):
     match text_node.text_type:
@@ -40,3 +41,84 @@ def split_text_into_nodes_delimiter(old_nodes, delimiter):
             nodes.append(node)
         new_nodes.extend(nodes)
     return new_nodes
+
+def extract_markdown_links(text):
+    # pattern =  r"(?<!!)\[([^\[\]]*)\]\(([^\(\)]*)\)"
+    pattern = r'(?<!!)\[([\s\S]+?)\]\(([\s\S]+?)\)'
+    return re.findall(pattern, text)
+
+def extract_markdown_images(text):
+    # pattern = r"!\[([^\[\]]*)\]\(([^\(\)]*)\)"
+    pattern = r'(?<=!)\[([\s\S]+?)\]\(([\s\S]+?)\)'
+    return re.findall(pattern, text)
+
+def split_text_image_into_text_nodes(old_nodes):
+    new_nodes = []
+    if old_nodes:
+        for old_node in old_nodes:
+            if old_node.text_type != TextType.TEXT:
+                new_nodes.append(old_node)
+                continue
+            
+            md_images = extract_markdown_images(old_node.text)
+            
+            text_extracted = old_node.text
+            nodes = []
+       
+            for md_image in md_images:
+                if text_extracted:
+                    chunks = text_extracted.split(f'![{md_image[0]}]({md_image[1]})',1)
+                    
+                    if chunks[0] != '':
+                        new_node = TextNode(chunks[0], TextType.TEXT)
+                        nodes.append(new_node)   
+                    nodes.append(TextNode(f'{md_image[0]}', TextType.IMAGE, f'{md_image[1]}'))
+                    
+                    text_extracted = chunks[1]
+            if text_extracted:
+                nodes.append(TextNode(text_extracted, TextType.TEXT))
+            new_nodes.extend(nodes)
+        return new_nodes
+    else:
+        raise Exception('Error: No nodes passed')
+    
+def split_text_links_into_text_nodes(old_nodes):
+    new_nodes = []
+    if old_nodes:
+        for old_node in old_nodes:
+            if old_node.text_type != TextType.TEXT:
+                new_nodes.append(old_node)
+                continue
+            
+            md_images = extract_markdown_links(old_node.text)
+            
+            text_extracted = old_node.text
+            nodes = []
+       
+            for md_image in md_images:
+                if text_extracted:
+                    chunks = text_extracted.split(f'[{md_image[0]}]({md_image[1]})',1)
+                    
+                    if chunks[0] != '':
+                        new_node = TextNode(chunks[0], TextType.TEXT)
+                        nodes.append(new_node)   
+                    nodes.append(TextNode(f'{md_image[0]}', TextType.LINK, f'{md_image[1]}'))
+                    
+                    text_extracted = chunks[1]
+            if text_extracted:
+                nodes.append(TextNode(text_extracted, TextType.TEXT))
+            new_nodes.extend(nodes)
+        return new_nodes
+    else:
+        raise Exception('Error: No nodes passed')
+    
+def text_to_text_nodes(text):
+    if text:
+        text_nodes =  [TextNode(text, TextType.TEXT)]
+        for delimiter in ['**', '_', '`']:
+            text_nodes = split_text_into_nodes_delimiter(text_nodes, delimiter)
+        text_nodes = split_text_image_into_text_nodes(text_nodes)
+        text_nodes = split_text_links_into_text_nodes(text_nodes)
+        return text_nodes
+    else:
+        raise Exception('Error: No text passed')

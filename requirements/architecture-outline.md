@@ -32,10 +32,17 @@
         # allows nested tags and multiple tags on the same level. Values are also permitted.
 
 ### transformation.py
+    #### To Textnode transformations
     - markdown_to_text_nodes(text) -> text_node 
         # Deal with markdown delimiters (for bold, italic, code etc.), images and links
         - 1. split_text_delimiter()
         - 2. split_text_image()
+            - Extract the anchor text and corresponding image link
+            - Convert the provided image part into TextNode of IMAGE type. Other parts are retained as Textnodes of type TEXT.
         - 3. split_text_link()
+            - Extract the anchor text and corresponding link
+            - Convert the provided link part into TextNode of LINK type. Other parts are retained as Textnodes of type TEXT.
     - textnode_to_leaf_node(text_node) ->  LeafNode 
         # Convert markdown textnodes to html (leaf nodes) with suitable tags
+
+    #### To HTMLNode transformations
