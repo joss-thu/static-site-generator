@@ -122,3 +122,12 @@ def text_to_text_nodes(text):
         return text_nodes
     else:
         raise Exception('Error: No text passed')
+    
+def markdown_to_blocks(markdown_text):
+    text = markdown_text.strip()
+    if text.isspace() or text == "":
+        raise Exception('Error: Empty block!')
+    else:
+        return text.split('\n\n')
+
+

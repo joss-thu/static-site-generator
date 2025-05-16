@@ -1,11 +1,13 @@
 import unittest
 from src.textnode import TextNode, TextType
-# from src.htmlnode import ParentNode, LeafNode
+from src.htmlnode import block_to_block_type, BlockType
 from src.transformation import (
     text_node_to_html_leaf_node, split_text_into_nodes_delimiter,
     extract_markdown_links, extract_markdown_images, split_text_image_into_text_nodes,
-    split_text_links_into_text_nodes, text_to_text_nodes
+    split_text_links_into_text_nodes, text_to_text_nodes,
+    markdown_to_blocks
 )
+
 
 class test_transformations(unittest.TestCase):
     def test_values(self):
@@ -270,6 +272,51 @@ class test_transformations(unittest.TestCase):
             TextNode("link", TextType.LINK, "https://boot.dev"),
         ]
     )
+
+    # ------------------------------------------------------------------------
+    # split blocks
+    # ------------------------------------------------------------------------
+
+    def test_markdown_to_blocks(self):
+        md = """
+This is **bolded** paragraph
+
+This is another paragraph with _italic_ text and `code` here
+This is the same paragraph on a new line
+
+- This is a list
+- with items
+- with more items
+"""
+        blocks = markdown_to_blocks(md)
+        self.assertEqual(
+            blocks,
+            [
+                "This is **bolded** paragraph",
+                "This is another paragraph with _italic_ text and `code` here\nThis is the same paragraph on a new line",
+                "- This is a list\n- with items\n- with more items",
+            ],
+        )
+
+    def test_markdown_to_blocks_empty_block(self):
+        md = """\n\n\n\n \t\n"""
+        with self.assertRaises(Exception):
+            return markdown_to_blocks(md)
+    
+    # ------------------------------------------------------------------------
+    # block to block type
+    # ------------------------------------------------------------------------
+    def test_block_to_block_type(self):
+        # heading
+        text = "# This is h1"
+        self.assertEqual(block_to_block_type(text), BlockType.HEADING)
+    
+        text = "### This is h3"
+        self.assertEqual(block_to_block_type(text), BlockType.HEADING)
+
+        text = "####### This is h7"
+        self.assertEqual(block_to_block_type(text), BlockType.PARAGRAPH)
+
 
 if __name__ == '__main__':
     unittest.main()

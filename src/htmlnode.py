@@ -1,4 +1,13 @@
-# from textnode import TextType, TextNode
+from enum import Enum
+import re
+
+class BlockType(Enum):
+    PARAGRAPH = 'paragraph'
+    HEADING = '#'
+    CODE = 'code'
+    QUOTE = 'quote'
+    ULIST = 'unordered_list'
+    OLIST = 'ordered_list'
 
 class HTMLNode:
     def __init__(self, tag = None, value = None, children = None, props = None):
@@ -53,6 +62,14 @@ class ParentNode(HTMLNode):
             value = self.value if self.value else ''
             html_text += value + node.to_html()
         return f'<{self.tag}{attr}>{html_text}</{self.tag}>'
+
+def block_to_block_type(block_text):
+    heading_pattern = r'^(#{1,6} )'
+    if re.findall(heading_pattern, block_text):
+        return BlockType.HEADING
+    else:
+        return BlockType.PARAGRAPH
     
+
 
             
