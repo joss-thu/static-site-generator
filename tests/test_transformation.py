@@ -306,8 +306,7 @@ This is the same paragraph on a new line
     # ------------------------------------------------------------------------
     # block to block type
     # ------------------------------------------------------------------------
-    def test_block_to_block_type(self):
-        # heading
+    def test_block_to_block_type_heading(self):
         text = "# This is h1"
         self.assertEqual(block_to_block_type(text), BlockType.HEADING)
     
@@ -316,6 +315,41 @@ This is the same paragraph on a new line
 
         text = "####### This is h7"
         self.assertEqual(block_to_block_type(text), BlockType.PARAGRAPH)
+
+    def test_block_to_block_type_code(self):
+        text = "```This is code```"
+        self.assertEqual(block_to_block_type(text), BlockType.CODE)
+
+    def test_block_to_block_type_quote(self):   
+        text = """> This is a quote \n> This another one \n> This is yet another one"""
+        self.assertEqual(block_to_block_type(text), BlockType.QUOTE)
+
+    def test_block_to_block_type_ulist(self):   
+        text = """- This is a quote \n- This another one \n- This is yet another one"""
+        self.assertEqual(block_to_block_type(text), BlockType.ULIST)
+
+    def test_block_to_block_type_olist(self):
+        # Ordered list: in order
+        text = """1. This is a list item \n2. This another list item \n3. This is yet another one"""
+        self.assertEqual(block_to_block_type(text), BlockType.OLIST)
+        
+        # Ordered list: not in order 
+        text = """1. This is a list item \n3. This another list item \n5. This is yet another one"""
+        self.assertEqual(block_to_block_type(text), BlockType.PARAGRAPH)
+       
+        # Ordered list: not in order, numbers with multiple digits
+        text = """112. This is a list item \n2. This another list item \n3. This is yet another one"""
+        self.assertEqual(block_to_block_type(text), BlockType.PARAGRAPH)
+        
+        # Ordered list: reverse order- allowed
+        text = """3. This is a list item \n2. This another list item \n1. This is yet another one"""
+        self.assertEqual(block_to_block_type(text), BlockType.OLIST)
+        
+        # Ordered list: reverse order- not in order, multiple digits
+        text = """3. This is a list item \n22. This another list item \n11. This is yet another one"""
+        self.assertEqual(block_to_block_type(text), BlockType.PARAGRAPH)
+
+        
 
 
 if __name__ == '__main__':

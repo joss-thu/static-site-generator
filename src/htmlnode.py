@@ -67,6 +67,33 @@ def block_to_block_type(block_text):
     heading_pattern = r'^(#{1,6} )'
     if re.findall(heading_pattern, block_text):
         return BlockType.HEADING
+    
+    code_pattern = r'^```.*```$'
+    if re.findall(code_pattern, block_text):
+        return BlockType.CODE
+    
+    quote_pattern = r'^> (.*)'
+    if re.findall(quote_pattern, block_text, re.MULTILINE):
+        return BlockType.QUOTE
+
+    ulist_pattern = r'^- (.*)'
+    if re.findall(ulist_pattern, block_text, re.MULTILINE):
+        return BlockType.ULIST
+    
+    olist_pattern = r'^([0-9]+\. .*)'
+    matches = re.findall(olist_pattern, block_text, re.MULTILINE)
+    if matches:
+        numbers = []
+        for match in matches:
+            list_num = re.findall(r'^([0-9]+)', match)
+            if len(list_num) == 1:
+                numbers.append(int(list_num[0], 10))
+            else:
+                raise Exception('Error: illegal list format')
+        if numbers == list(range(1, len(numbers)+1)) or numbers[::-1] == list(range(1, len(numbers)+1)):
+            return BlockType.OLIST
+        else:
+            return BlockType.PARAGRAPH
     else:
         return BlockType.PARAGRAPH
     
