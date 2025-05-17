@@ -64,12 +64,35 @@ class HTMLNode:
         self.props = props
 
     def to_html(self):
+        """
+        Converts the HTMLNode instance to its HTML string representation.
+        
+        This method should be implemented by subclasses (LeafNode or ParentNode).
+        
+        Raises:
+            NotImplementedError: If called on the base HTMLNode class.
+        """
         raise NotImplementedError('Method not defined for generic html node')
     
     def props_to_html(self):
+        """
+        Converts the props dictionary to a string of HTML attributes.
+
+        Returns:
+            str: A string of HTML attributes (e.g., 'src="img.png" alt="desc"').
+        """
         return ' '.join([f'{k}="{v}"' for k,v in self.props.items()])
 
     def __eq__(self, other):
+        """
+        Checks equality between this HTMLNode and another.
+
+        Args:
+            other (HTMLNode): The node to compare with.
+
+        Returns:
+            bool: True if all attributes are equal, False otherwise.
+        """
         return (
             self.tag == other.tag and 
             self.value == other.value and 
@@ -78,6 +101,12 @@ class HTMLNode:
         )
     
     def __repr__(self):
+        """
+        Returns a string representation of the HTMLNode instance.
+
+        Returns:
+            str: The string representation.
+        """
         return f'HTMLNode({self.tag}, {self.value}, {self.children}, {self.props})'
     
 class LeafNode(HTMLNode):
