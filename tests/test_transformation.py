@@ -8,36 +8,62 @@ from src.transformation import (
     markdown_to_blocks
 )
 
-
 class test_transformations(unittest.TestCase):
     def test_values(self):
+        # ------------------------------------------------------------------------
+        # TextNodes and Inline HTML nodes
+        # ------------------------------------------------------------------------
+        # Normal text
         node = TextNode("This is a text node", TextType.TEXT)
+        self.assertEqual(node.text_type, TextType.TEXT)
+        self.assertEqual(node.text, "This is a text node")
+
         html_node = text_node_to_html_leaf_node(node)
         self.assertEqual(html_node.tag, None)
         self.assertEqual(html_node.value, "This is a text node")
 
+        # Bold text
         node = TextNode("This is a bold text node", TextType.BOLD)
+        self.assertEqual(node.text_type, TextType.BOLD)
+        self.assertEqual(node.text, "This is a bold text node")
+
         html_node = text_node_to_html_leaf_node(node)
         self.assertEqual(html_node.tag, 'b')
         self.assertEqual(html_node.to_html(), "<b>This is a bold text node</b>")
 
+        # Italic text
         node = TextNode("This is an italic text node", TextType.ITALIC)
+        self.assertEqual(node.text_type, TextType.ITALIC)
+        self.assertEqual(node.text, "This is an italic text node")
+
         html_node = text_node_to_html_leaf_node(node)
         self.assertEqual(html_node.tag, 'i')
         self.assertEqual(html_node.to_html(), "<i>This is an italic text node</i>")
 
+        # Code text
         node = TextNode("This is a code block node", TextType.CODE)
+        self.assertEqual(node.text_type, TextType.CODE)
+        self.assertEqual(node.text, "This is a code block node")
+
         html_node = text_node_to_html_leaf_node(node)
         self.assertEqual(html_node.tag, 'code')
         self.assertEqual(html_node.to_html(), "<code>This is a code block node</code>")
 
+        # Image
         node = TextNode("This is image alt text", TextType.IMAGE, 'http://img_link.com')
+        self.assertEqual(node.text_type, TextType.IMAGE)
+        self.assertEqual(node.text, "This is image alt text")
+
         html_node = text_node_to_html_leaf_node(node)
         self.assertEqual(html_node.tag, 'img')
         self.assertEqual(html_node.props, {"src": "http://img_link.com", "alt": "This is image alt text"})
         self.assertEqual(html_node.to_html(), '<img src="http://img_link.com" alt="This is image alt text"></img>')
 
+        # Link
         node = TextNode("This is link text", TextType.LINK, 'http://link.com')
+        self.assertEqual(node.text_type, TextType.LINK)
+        self.assertEqual(node.text, "This is link text")
+
         html_node = text_node_to_html_leaf_node(node)
         self.assertEqual(html_node.tag, 'a')
         self.assertEqual(html_node.props, {"href": "http://link.com"})
