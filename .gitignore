@@ -1,3 +1,5 @@
 **/__pycache__/
 /src/checks.ipynb
+.vscode
+/docs/_build/
 
