@@ -28,7 +28,7 @@ quickstart)
     # Edit the conf.py file.
     # Note:Edit the section below to suit the respective theme installed. Check sphinx themes for details
     # -- ------------------------------------------------------------------------
-    conf="./source/conf.py"
+    conf="./conf.py"
     if [ -f $conf ]; then
         # echo "Current directory: $(pwd)"
         # ls -l source/conf.py
@@ -42,7 +42,7 @@ quickstart)
         # Add path for src folder (where code is)
         sed -i '1i\
 import os, sys\
-sys.path.insert(0, os.path.abspath("../.."))\
+sys.path.insert(0, os.path.abspath(".."))\
 ' "$conf"
 
     # Add additional theme specific configurations
@@ -128,7 +128,7 @@ api-doc)
     sphinx-apidoc -o ./docs/source ./src
     
     # Delete the default content
-    index="./docs/source/index.rst"
+    index="./docs/index.rst"
     sed -i '/Add your content/,/documentation for details./d' "$index"
 
     # -- ------------------------------------------------------------------------
@@ -170,13 +170,13 @@ build)
     # -- ------------------------------------------------------------------------
     # Build the sphinx project
     # -- ------------------------------------------------------------------------
-    cd docs && rm -rf build && mkdir -p build && make html
+    cd docs && rm -rf build && make html
     ;;
 serve)
     # -- ------------------------------------------------------------------------
     # Serve the sphinx project
     # -- ------------------------------------------------------------------------
-    python3 -m http.server 8000 --directory ./docs/build/html
+    python3 -m http.server 8000 --directory ./docs/_build/html
     ;;
 
 build-serve)
