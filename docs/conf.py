@@ -1,5 +1,5 @@
 import os, sys
-sys.path.insert(0, os.path.abspath("../.."))
+sys.path.insert(0, os.path.abspath(".."))
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -9,9 +9,9 @@ sys.path.insert(0, os.path.abspath("../.."))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Static Website Generator'
-copyright = '2025, JossCodes'
-author = 'JossCodes'
+project = 'hgf'
+copyright = '2025, hjcg'
+author = 'hjcg'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -19,7 +19,7 @@ author = 'JossCodes'
 extensions = ["sphinx.ext.todo", "sphinx.ext.viewcode", "sphinx.ext.autodoc", "myst_parser"]
 
 templates_path = ['_templates']
-exclude_patterns = []
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 
 
@@ -39,7 +39,7 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # -- Options for HTML output -------------------------------------------------
-html_logo = '../../copyrights/joss_codes.png'  # Path to your logo
+html_logo = '../copyrights/joss_codes.png'  # Path to your logo
 html_favicon = None  # Path to your favicon
 
 # -- Furo-specific options ---------------------------------------------------
