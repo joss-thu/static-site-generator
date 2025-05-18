@@ -104,7 +104,7 @@ intersphinx_mapping = {
 todo_include_todos = True
 
 # -- Autodoc options ---------------------------------------------------------
-autoclass_content = 'both'  # Include both class docstring and __init__
+autoclass_content = 'class'  # Include only class docstring and not __init__
 autodoc_default_options = {
     'members': True,
     'undoc-members': True,
@@ -145,7 +145,8 @@ if [ -f "$index" ]; then
     # Note: The project description should be changed depending on the project.
     cat << EOF > "$tmpfile"
 This project is a static site generator built with Python.
-It converts markdown and other source files into a complete, styled HTML documentation site using Sphinx.
+
+It takes raw content files (like Markdown and images) and turns them into a static website (a mix of HTML and CSS files).
 
 .. toctree::
    :maxdepth: 2
@@ -178,6 +179,7 @@ serve)
     # -- ------------------------------------------------------------------------
     # Serve the sphinx project
     # -- ------------------------------------------------------------------------
+    fuser -k 8000/tcp 2>/dev/null
     python3 -m http.server 8000 --directory ./docs/build/html
     ;;
 

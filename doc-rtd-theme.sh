@@ -106,7 +106,7 @@ intersphinx_mapping = {
 todo_include_todos = True
 
 # -- Autodoc options ---------------------------------------------------------
-autoclass_content = 'both'  # Include both class and __init__ docstrings
+autoclass_content = 'class'  # Include only class and not __init__ docstrings
 autodoc_default_options = {
     'members': True,
     'undoc-members': True,
