@@ -1,6 +1,4 @@
 """
-htmlnode.py
-
 Provides classes and functions for representing, manipulating, and converting HTML nodes,
 as well as for detecting block types from markdown-like text.
 
@@ -25,12 +23,12 @@ class BlockType(Enum):
     Enum representing common HTML block elements.
 
     Members:
-        PARAGRAPH: A standard paragraph block.
-        HEADING: A heading block (e.g., <h1>, <h2>, ...).
-        CODE: A code block.
-        QUOTE: A blockquote.
-        ULIST: An unordered list.
-        OLIST: An ordered list.
+        - PARAGRAPH: A standard paragraph block.
+        - HEADING: A heading block (e.g., <h1>, <h2>, ...).
+        - CODE: A code block.
+        - QUOTE: A blockquote.
+        - ULIST: An unordered list.
+        - OLIST: An ordered list.
     """
     PARAGRAPH = 'paragraph'
     HEADING = '#'

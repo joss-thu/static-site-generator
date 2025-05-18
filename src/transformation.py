@@ -1,6 +1,4 @@
 """
-transformation.py
-
 Provides functions for transforming markdown text into structured text nodes and HTML nodes.
 
 Functions:

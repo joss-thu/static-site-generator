@@ -1,5 +1,4 @@
-"""textnode.py
-
+"""
 Defines classes and functions for representing and manipulating markdown text nodes.
 
 Classes:
