@@ -1,10 +1,10 @@
-.. hgf documentation master file, created by
-   sphinx-quickstart on Sun May 18 18:16:16 2025.
+.. Static Website Generator documentation master file, created by
+   sphinx-quickstart on Sun May 18 18:34:25 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-hgf documentation
-=================
+Static Website Generator documentation
+======================================
 
 
 
