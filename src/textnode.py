@@ -1,3 +1,5 @@
+"""Classes and functions used to manipulate the markdown text nodes.
+"""
 from enum import Enum
 
 class TextType(Enum):

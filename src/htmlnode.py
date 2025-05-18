@@ -6,7 +6,7 @@ import re
 class BlockType(Enum):
     """BlockType Enum
 
-    The BlockType Enum for the common HTML elements. The minimum list of elements are:
+    The BlockType Enum for the common HTML elements. The enum types are:
 
     - PARAGRAPH
     - HEADING
@@ -30,34 +30,53 @@ class HTMLNode:
     This class is intended to be extended by the `LeafNode` and `ParentNode` classes.
 
     Attributes:
-        tag (str or None): The HTML tag for the elements.
-        - 'b' -> bold,
-        - 'i' -> italic,
-        - 'code' -> code,
-        - 'img' -> image,
-        - 'a' -> link,
-        - '' -> None (for plain text)
-        value (str or None): The text value for the HTML node.
-        children (list[HTMLNode] or None): List of child HTMLNode objects, if any.
-        props (dict or None): Dictionary of HTML attributes (e.g., {'src': 'img.png', 'alt': 'desc'}).
+
+        tag (str or None):
+            The HTML tag for the elements.
+
+            - 'b' -> bold,
+            - 'i' -> italic,
+            - 'code' -> code,
+            - 'img' -> image,
+            - 'a' -> link,
+            - '' -> None (for plain text)
+
+        value (str or None): 
+            The text value for the HTML node.
+
+        children (list[HTMLNode] or None):
+            List of child HTMLNode objects, if any.
+
+        props (dict or None):
+            Dictionary of HTML attributes (e.g., {'src': 'img.png', 'alt': 'desc'}).
    
     """
+
     def __init__(self, tag = None, value = None, children = None, props = None):
         """
         Initializes an HTMLNode instance.
 
         Args:
-            tag (str or None): The HTML tag for the elements.
-                - 'b' -> bold,
-                - 'i' -> italic,
-                - 'code' -> code,
-                - 'img' -> image,
-                - 'a' -> link,
-                - '' -> None (for plain text)
-            value (str or None): The text value for the HTML node.
-            children (list[HTMLNode] or None): List of child HTMLNode objects, if any.
-            props (dict or None): Dictionary of HTML attributes (e.g., {'src': 'img.png', 'alt': 'desc'}).
+        
+            tag (str or None): 
+                The HTML tag for the elements.
+                    - 'b' -> bold,
+                    - 'i' -> italic,
+                    - 'code' -> code,
+                    - 'img' -> image,
+                    - 'a' -> link,
+                    - '' -> None (for plain text)
+
+            value (str or None):
+                The text value for the HTML node.
+
+            children (list[HTMLNode] or None):
+                List of child HTMLNode objects, if any.
+
+            props (dict or None):
+                Dictionary of HTML attributes (e.g., {'src': 'img.png', 'alt': 'desc'}).
         """
+
         self.tag = tag
         self.value = value
         self.children = children
@@ -72,6 +91,7 @@ class HTMLNode:
         Raises:
             NotImplementedError: If called on the base HTMLNode class.
         """
+        
         raise NotImplementedError('Method not defined for generic html node')
     
     def props_to_html(self):
