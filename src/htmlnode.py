@@ -30,12 +30,20 @@ class BlockType(Enum):
         - ULIST: An unordered list.
         - OLIST: An ordered list.
     """
-    PARAGRAPH = 'paragraph'
-    HEADING = '#'
+    PARAGRAPH = 'p'
+    HEADING = 'h'
     CODE = 'code'
-    QUOTE = 'quote'
-    ULIST = 'unordered_list'
-    OLIST = 'ordered_list'
+    QUOTE = 'blockquote'
+    ULIST = 'ul'
+    OLIST = 'ol'
+
+class HTMLTag(Enum):
+    BOLD = 'b'
+    ITALIC = 'i'
+    CODE ='code'
+    IMAGE = 'img'
+    LINK = 'a'
+    TEXT = ''
 
 class HTMLNode:
     """Represents the basic HTML element node.
@@ -142,6 +150,9 @@ class HTMLNode:
         """
 
         return f'HTMLNode({self.tag}, {self.value}, {self.children}, {self.props})'
+    
+    def is_LeafNode(self):
+        return not self.children
     
 class LeafNode(HTMLNode):
     """

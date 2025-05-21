@@ -5,7 +5,8 @@ from src.transformation import (
     text_node_to_html_leaf_node, split_text_into_nodes_delimiter,
     extract_markdown_links, extract_markdown_images, split_text_image_into_text_nodes,
     split_text_links_into_text_nodes, text_to_text_nodes,
-    markdown_to_blocks
+    markdown_to_blocks, markdown_to_html_node, process_heading,
+    process_code, process_quotes, process_ulist, process_olist, process_paragraph
 )
 
 class test_transformations(unittest.TestCase):
@@ -374,6 +375,81 @@ This is the same paragraph on a new line
         # Ordered list: reverse order- not in order, multiple digits
         text = """3. This is a list item \n22. This another list item \n11. This is yet another one"""
         self.assertEqual(block_to_block_type(text), BlockType.PARAGRAPH)
+
+    # ------------------------------------------------------------------------
+    # md to html
+    # ------------------------------------------------------------------------
+
+    def test_process_heading(self):
+        block = '# An h1 level heading'
+        self.assertEqual(process_heading(block), '<h1>An h1 level heading</h1>')
+
+        block = '###### An h6 level heading'
+        self.assertEqual(process_heading(block), '<h6>An h6 level heading</h6>')
+    
+    def test_process_code(self):
+        block = '```Code block with codes```'
+        self.assertEqual(process_code(block), '<pre><code>Code block with codes</code></pre>')
+
+    def test_process_quotes(self):
+        block = '''
+> quote 1
+> quote 2
+> quote 3
+'''
+        self.assertEqual(process_quotes(block), '''<blockquote>quote 1\nquote 2\nquote 3</blockquote>''')
+
+    def test_process_ulist(self):
+        block = '''
+- ulist_item_1
+- ulist_item_2
+- ulist_item_3
+'''
+        self.assertEqual(process_ulist(block), '''<ul>\n\t<li>ulist_item_1</li>\n\t<li>ulist_item_2</li>\n\t<li>ulist_item_3</li>\n</ul>''')
+    
+    def test_process_olist(self):
+        block = '''
+1. olist_item_1
+2. olist_item_2
+3. olist_item_3
+'''
+        self.assertEqual(process_olist(block), '''<ol>\n\t<li>olist_item_1</li>\n\t<li>olist_item_2</li>\n\t<li>olist_item_3</li>\n</ol>''')
+
+    def test_process_pargaraph(self):
+        block = 'A normal paragraph'
+        self.assertEqual(process_paragraph(block), '<p>A normal paragraph</p>')
+
+
+#     def test_paragraphs(self):
+#         md = """
+# This is **bolded** paragraph
+# text in a p
+# tag here
+
+# This is another paragraph with _italic_ text and `code` here
+
+# """
+
+#         node = markdown_to_html_node(md)
+#         html = node.to_html()
+#         self.assertEqual(
+#             html,
+#             "<div><p>This is <b>bolded</b> paragraph text in a p tag here</p><p>This is another paragraph with <i>italic</i> text and <code>code</code> here</p></div>",
+#         )
+
+# def test_codeblock(self):
+#     md = """
+# ```
+# This is text that _should_ remain
+# the **same** even with inline stuff
+# ```
+# """
+#     node = markdown_to_html_node(md)
+#     html = node.to_html()
+#     self.assertEqual(
+#         html,
+#         "<div><pre><code>This is text that _should_ remain\nthe **same** even with inline stuff\n</code></pre></div>",
+#     )
 
         
 

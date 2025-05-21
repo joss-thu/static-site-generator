@@ -1,5 +1,6 @@
 import unittest
-from src.htmlnode import HTMLNode, LeafNode, ParentNode
+from src.htmlnode import HTMLNode, LeafNode, ParentNode, HTMLTag
+from src.textnode import TextType
 
 class Test_HTMLNode(unittest.TestCase):
     # ------------------------------------------------------------------------
@@ -116,11 +117,11 @@ class Test_HTMLNode(unittest.TestCase):
                                                                                                              ]),                    
                                                                             ]),
                                                     ParentNode('p',
-                                                               children = [LeafNode('img', 'image_text', props = {'href': 'http://img.com'})])
+                                                               children = [LeafNode('img', 'image_text', props = {'src': 'http://img.com'})])
                                                     ])
         self.assertEqual(
             parent_node.to_html(),
-            '<div><span><b>grandchild</b></span><ul><li>grandchild_node_1</li><li>grandchild_node_2<p>list element<b>bolded text</b></p></li></ul><p><img href="http://img.com">image_text</img></p></div>'
+            '<div><span><b>grandchild</b></span><ul><li>grandchild_node_1</li><li>grandchild_node_2<p>list element<b>bolded text</b></p></li></ul><p><img src="http://img.com">image_text</img></p></div>'
         )
 
     # check for tag
@@ -141,6 +142,25 @@ class Test_HTMLNode(unittest.TestCase):
         node = ParentNode('p', 'This is some text', None, None)
         with self.assertRaises(ValueError):
             return node.to_html()
+        
+    # check if leaf node
+    # check html tags fro code, blockquote
+    # Parent node with props
+    def test_parent_node_with_props(self):
+        node = ParentNode(
+            tag = HTMLTag.IMAGE.value,
+            value='',
+            children=[LeafNode(HTMLTag.TEXT.value, 'This is a ',),
+                      LeafNode(HTMLTag.BOLD.value,'bolded'),
+                      LeafNode(HTMLTag.TEXT.value, ' text')],
+            props={
+                'src':"http://link.com",
+                'alt':"alt_text"
+            }
+
+        )
+        self.assertEqual(node.to_html(), '<img src="http://link.com" alt="alt_text">This is a <b>bolded</b> text</img>')
+
 
 if __name__ == '__main__':
     unittest.main()

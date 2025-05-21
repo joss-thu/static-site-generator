@@ -2,4 +2,4 @@
 /src/checks.ipynb
 .vscode
 /docs/_build/
-
+/code_metrics/code_metrics_*

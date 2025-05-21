@@ -5,6 +5,13 @@ quickstart)
     # -- ------------------------------------------------------------------------
     # Check if sphinx, sphinx_rtd_theme and myst_parser (optional) are installed
     # -- ------------------------------------------------------------------------
+    echo -e "
+Welcome to the Sphinx Documentation project !!
+==============================================
+NOTE: 
+- Select NO when prompted to create separate source and build folders.
+
+    "
     if ! python3 -c "import sphinx" 2>/dev/null; then
         echo -e "sphinx not installed. Please install it with:\n pip install sphinx"
         exit 1
@@ -119,7 +126,7 @@ autodoc_default_options = {
 " >> $conf
     else
         echo "Error: config file not found. Reattempt the project."
-        echo "Note: The project should have separate source and build folders"
+        echo "Note: The project should NOT have separate source and build folders"
     fi
     ;;
 

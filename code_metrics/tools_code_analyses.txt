@@ -1,0 +1,19 @@
+UML: 
+pyreverse
+````
+pyreverse -o png --colorized -p SSG -d ./code_analyses/ ./src/
+```
+
+Method-dependencies:
+code2flow
+```
+code2flow --exclude-functions __init__ ./src/* -o ./code_analyses/method_dependencies.png
+```
+
+code-metrics:
+radon
+lizard
+
+To-do:
+Xenon CI integration
+Lizard dashboards

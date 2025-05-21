@@ -31,7 +31,7 @@ Usage:
 """
 
 from src.textnode import TextType, TextNode, get_text_type_from_delimiter
-from src.htmlnode import ParentNode, LeafNode
+from src.htmlnode import ParentNode, LeafNode, block_to_block_type, BlockType
 import re
 
 def text_node_to_html_leaf_node(text_node):
@@ -257,4 +257,61 @@ def markdown_to_blocks(markdown_text):
     else:
         return text.split('\n\n')
 
+def process_heading(block):
+    md_heading_level = re.findall(r'^([#]+) ', block)
+    [block] = re.findall(r'^[#]+ (.*)', block)
+    level = len(*md_heading_level)
+    return f'<h{level}>{block}</h{level}>'
+
+def process_code(block):
+    [block] = re.findall(r'^```(.*)```$', block)
+    return f'<pre><code>{block}</code></pre>'
+
+def process_quotes(block):
+    block_quote = re.findall(r'^> (.*)', block, re.MULTILINE)
+    block_quote = '\n'.join(block_quote)
+    return f'<blockquote>{block_quote}</blockquote>'
+
+def process_ulist(block):
+    ulist_items = re.findall(r'^- (.*)', block, re.MULTILINE)
+    ulist = [f'\t<li>{item}</li>\n' for item in ulist_items]
+    ulist.insert(0, '<ul>\n')
+    ulist.append('</ul>')
+    return ''.join(ulist)
+
+def process_olist(block):
+    olist_items = re.findall(r'^[0-9]+\. (.*)', block, re.MULTILINE)
+    olist = [f'\t<li>{item}</li>\n' for item in olist_items]
+    olist.insert(0, '<ol>\n')
+    olist.append('</ol>')
+    return ''.join(olist)
+
+def process_paragraph(block):
+    return f'<p>{block}</p>'
+
+
+def markdown_to_html_node(markdown):
+    html = []
+    if markdown:
+        formatted_blocks = []
+        blocks = markdown_to_blocks(markdown)
+        for block in blocks:
+            block_type = block_to_block_type(block)
+            match block_type:
+                case BlockType.HEADING:
+                    formatted_blocks.append(process_heading(block))
+                case BlockType.CODE:
+                    formatted_blocks.append(process_code(block))
+                case BlockType.QUOTE:
+                    formatted_blocks.append(process_quotes(block))
+                case BlockType.ULIST:
+                    formatted_blocks.append(process_ulist(block))
+                case BlockType.OLIST:
+                    formatted_blocks.append(process_olist(block))
+                case BlockType.PARAGRAPH:
+                    pass
+                case _:
+                    formatted_blocks.append(process_paragraph(block))
+    print( formatted_blocks)
+    return  formatted_blocks
 

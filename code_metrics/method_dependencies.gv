@@ -1,0 +1,94 @@
+digraph G {
+concentrate=true;
+splines="ortho";
+rankdir="LR";
+subgraph legend{
+    rank = min;
+    label = "legend";
+    Legend [shape=none, margin=0, label = <
+        <table cellspacing="0" cellpadding="0" border="1"><tr><td>Code2flow Legend</td></tr><tr><td>
+        <table cellspacing="0">
+        <tr><td>Regular function</td><td width="50px" bgcolor='#cccccc'></td></tr>
+        <tr><td>Trunk function (nothing calls this)</td><td bgcolor='#966F33'></td></tr>
+        <tr><td>Leaf function (this calls nothing else)</td><td bgcolor='#6db33f'></td></tr>
+        <tr><td>Function call</td><td><font color='black'>&#8594;</font></td></tr>
+        </table></td></tr></table>
+        >];
+}node_a02063cc [label="113: props_to_html()" name="htmlnode::HTMLNode.props_to_html" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_0928c6c1 [label="186: to_html()" name="htmlnode::LeafNode.to_html" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
+node_4678e5ed [label="240: to_html()" name="htmlnode::ParentNode.to_html" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
+node_578975c4 [label="264: block_to_block_type()" name="htmlnode::block_to_block_type" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_115bb15d [label="37: get_text_type_from_delimiter()" name="textnode::get_text_type_from_delimiter" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_eddccc70 [label="115: extract_markdown_images()" name="transformation::extract_markdown_images" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_a75f6842 [label="101: extract_markdown_links()" name="transformation::extract_markdown_links" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_1c1dc0c2 [label="240: markdown_to_blocks()" name="transformation::markdown_to_blocks" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_5f975391 [label="293: markdown_to_html_node()" name="transformation::markdown_to_html_node" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
+node_6351a863 [label="266: process_code()" name="transformation::process_code" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_1b8320f4 [label="260: process_heading()" name="transformation::process_heading" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_d5683684 [label="282: process_olist()" name="transformation::process_olist" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_d24a84fe [label="289: process_paragraph()" name="transformation::process_paragraph" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_90407701 [label="270: process_quotes()" name="transformation::process_quotes" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_6139a97c [label="275: process_ulist()" name="transformation::process_ulist" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_0840f19d [label="130: split_text_image_into_text_nodes()" name="transformation::split_text_image_into_text_nodes" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
+node_e5db025c [label="67: split_text_into_nodes_delimiter()" name="transformation::split_text_into_nodes_delimiter" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
+node_9be68c7f [label="173: split_text_links_into_text_nodes()" name="transformation::split_text_links_into_text_nodes" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
+node_c325692f [label="216: text_to_text_nodes()" name="transformation::text_to_text_nodes" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
+node_0928c6c1 -> node_a02063cc [color="#E69F00" penwidth="2"];
+node_4678e5ed -> node_a02063cc [color="#0072B2" penwidth="2"];
+node_5f975391 -> node_578975c4 [color="#E69F00" penwidth="2"];
+node_5f975391 -> node_1c1dc0c2 [color="#E69F00" penwidth="2"];
+node_5f975391 -> node_6351a863 [color="#E69F00" penwidth="2"];
+node_5f975391 -> node_1b8320f4 [color="#E69F00" penwidth="2"];
+node_5f975391 -> node_d5683684 [color="#E69F00" penwidth="2"];
+node_5f975391 -> node_d24a84fe [color="#E69F00" penwidth="2"];
+node_5f975391 -> node_90407701 [color="#E69F00" penwidth="2"];
+node_5f975391 -> node_6139a97c [color="#E69F00" penwidth="2"];
+node_0840f19d -> node_eddccc70 [color="#0072B2" penwidth="2"];
+node_e5db025c -> node_115bb15d [color="#F0E442" penwidth="2"];
+node_9be68c7f -> node_a75f6842 [color="#CC79A7" penwidth="2"];
+node_c325692f -> node_0840f19d [color="#CC79A7" penwidth="2"];
+node_c325692f -> node_e5db025c [color="#CC79A7" penwidth="2"];
+node_c325692f -> node_9be68c7f [color="#CC79A7" penwidth="2"];
+subgraph cluster_2e3a1007 {
+    node_578975c4;
+    label="File: htmlnode";
+    name="htmlnode";
+    style="filled";
+    graph[style=dotted];
+    subgraph cluster_6f06f9fa {
+        node_a02063cc;
+        label="Class: HTMLNode";
+        name="HTMLNode";
+        style="filled";
+        graph[style=dotted];
+    };
+    subgraph cluster_55e200b4 {
+        node_0928c6c1;
+        label="Class: LeafNode";
+        name="LeafNode";
+        style="filled";
+        graph[style=dotted];
+    };
+    subgraph cluster_4b3a796b {
+        node_4678e5ed;
+        label="Class: ParentNode";
+        name="ParentNode";
+        style="filled";
+        graph[style=dotted];
+    };
+};
+subgraph cluster_2ede6eaa {
+    node_115bb15d;
+    label="File: textnode";
+    name="textnode";
+    style="filled";
+    graph[style=dotted];
+};
+subgraph cluster_e626cf2a {
+    node_e5db025c node_a75f6842 node_eddccc70 node_0840f19d node_9be68c7f node_c325692f node_1c1dc0c2 node_1b8320f4 node_6351a863 node_90407701 node_6139a97c node_d5683684 node_d24a84fe node_5f975391;
+    label="File: transformation";
+    name="transformation";
+    style="filled";
+    graph[style=dotted];
+};
+}
