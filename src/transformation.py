@@ -31,7 +31,7 @@ Usage:
 """
 
 from src.textnode import TextType, TextNode, get_text_type_from_delimiter
-from src.htmlnode import ParentNode, LeafNode, block_to_block_type, BlockType
+from src.htmlnode import ParentNode, LeafNode, block_to_block_type, BlockType, HTMLTag
 import re
 
 def text_node_to_html_leaf_node(text_node):
@@ -264,11 +264,11 @@ def process_heading(block):
     return f'<h{level}>{block}</h{level}>'
 
 def process_code(block):
-    [block] = re.findall(r'^```(.*)```$', block)
+    [block] = re.findall(r'^```(.*?)```$', block, re.DOTALL)
     return f'<pre><code>{block}</code></pre>'
 
 def process_quotes(block):
-    block_quote = re.findall(r'^> (.*)', block, re.MULTILINE)
+    block_quote = re.findall(r'^> (.*)', block, re.MULTILINE) # multiline matches ^& $ for each line
     block_quote = '\n'.join(block_quote)
     return f'<blockquote>{block_quote}</blockquote>'
 
@@ -291,27 +291,40 @@ def process_paragraph(block):
 
 
 def markdown_to_html_node(markdown):
-    html = []
+    blank_node = TextNode('\n', TextType.TEXT)
+    children_nodes = []
     if markdown:
-        formatted_blocks = []
         blocks = markdown_to_blocks(markdown)
+        print(blocks)
         for block in blocks:
             block_type = block_to_block_type(block)
-            match block_type:
-                case BlockType.HEADING:
-                    formatted_blocks.append(process_heading(block))
-                case BlockType.CODE:
-                    formatted_blocks.append(process_code(block))
-                case BlockType.QUOTE:
-                    formatted_blocks.append(process_quotes(block))
-                case BlockType.ULIST:
-                    formatted_blocks.append(process_ulist(block))
-                case BlockType.OLIST:
-                    formatted_blocks.append(process_olist(block))
-                case BlockType.PARAGRAPH:
-                    pass
-                case _:
-                    formatted_blocks.append(process_paragraph(block))
-    print( formatted_blocks)
-    return  formatted_blocks
+            if block_type == BlockType.CODE:
+                block = process_code(block)
+                text_nodes = [TextNode(block, TextType.TEXT)]
+            else:
+                match block_type:
+                    case BlockType.HEADING:
+                        block = process_heading(block)
+                    case BlockType.CODE:
+                        pass
+                    case BlockType.QUOTE:
+                        pass
+                    case BlockType.ULIST:
+                        pass
+                    case BlockType.OLIST:
+                        pass
+                    case BlockType.PARAGRAPH:
+                        
+                        block = process_paragraph(block)
+                    case _:
+                        pass
+                text_nodes = text_to_text_nodes(block)
+            text_nodes.insert(0, blank_node)
+            text_nodes.append(blank_node)
+            for text_node in text_nodes:
+                leafnode = text_node_to_html_leaf_node(text_node)
+                children_nodes.append(leafnode)
+        html_node = ParentNode('div', '', children_nodes)
+    # print(html_node.to_html())
+    return html_node
 

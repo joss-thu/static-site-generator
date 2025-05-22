@@ -46,3 +46,6 @@ echo -e "
 ================================================================================================================
 " >> "$save_path"
 
+# Run coverage and generate HTML report
+coverage run -m unittest discover ./tests
+coverage html -d "./code_metrics/htmlcov_$(date +'%Y-%m-%d %H:%M')"

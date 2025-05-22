@@ -285,8 +285,8 @@ def block_to_block_type(block_text):
     if re.findall(heading_pattern, block_text):
         return BlockType.HEADING
     
-    code_pattern = r'^```.*```$'
-    if re.findall(code_pattern, block_text):
+    code_pattern = r'^```.*?```$'
+    if re.findall(code_pattern, block_text,re.DOTALL):
         return BlockType.CODE
     
     quote_pattern = r'^> (.*)'
