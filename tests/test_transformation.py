@@ -407,7 +407,7 @@ codes</code></pre>''')
 - ulist_item_2
 - ulist_item_3
 '''
-        self.assertEqual(process_ulist(block), '''<ul>\n\t<li>ulist_item_1</li>\n\t<li>ulist_item_2</li>\n\t<li>ulist_item_3</li>\n</ul>''')
+        self.assertEqual(process_ulist(block), '''<ul>\n<li>ulist_item_1</li>\n<li>ulist_item_2</li>\n<li>ulist_item_3</li>\n</ul>''')
     
     def test_process_olist(self):
         block = '''
@@ -415,7 +415,7 @@ codes</code></pre>''')
 2. olist_item_2
 3. olist_item_3
 '''
-        self.assertEqual(process_olist(block), '''<ol>\n\t<li>olist_item_1</li>\n\t<li>olist_item_2</li>\n\t<li>olist_item_3</li>\n</ol>''')
+        self.assertEqual(process_olist(block), '''<ol>\n<li>olist_item_1</li>\n<li>olist_item_2</li>\n<li>olist_item_3</li>\n</ol>''')
 
     def test_process_pargaraph(self):
         block = '''A normal
@@ -472,6 +472,61 @@ the **same** even with inline stuff```"""
 the **same** even with inline stuff</code></pre>
 </div>''',
     )
+
+    def test_quotes(self):
+        md = """
+> This is quote 1
+> This is quote 2
+> This is quote 3
+        """
+        node = markdown_to_html_node(md)
+        html = node.to_html()
+        self.assertEqual(
+            html,
+            '''<div>
+<blockquote>This is quote 1
+This is quote 2
+This is quote 3</blockquote>
+</div>''',
+    )
+        
+    def test_ulist(self):
+        md = """
+- This is ulist item 1
+- This is ulist item 2
+- This is ulist item 3
+        """
+        node = markdown_to_html_node(md)
+        html = node.to_html()
+        self.assertEqual(
+            html,
+            '''<div>
+<ul>
+<li>This is ulist item 1</li>
+<li>This is ulist item 2</li>
+<li>This is ulist item 3</li>
+</ul>
+</div>''',
+)
+        
+    def test_olist(self):
+        md = """
+1. This is ulist item 1
+2. This is ulist item 2
+3. This is ulist item 3
+        """
+        node = markdown_to_html_node(md)
+        html = node.to_html()
+        self.assertEqual(
+            html,
+            '''<div>
+<ol>
+<li>This is ulist item 1</li>
+<li>This is ulist item 2</li>
+<li>This is ulist item 3</li>
+</ol>
+</div>''',
+)
 
     
 if __name__ == '__main__':

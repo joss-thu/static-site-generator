@@ -274,14 +274,14 @@ def process_quotes(block):
 
 def process_ulist(block):
     ulist_items = re.findall(r'^- (.*)', block, re.MULTILINE)
-    ulist = [f'\t<li>{item}</li>\n' for item in ulist_items]
+    ulist = [f'<li>{item}</li>\n' for item in ulist_items]
     ulist.insert(0, '<ul>\n')
     ulist.append('</ul>')
     return ''.join(ulist)
 
 def process_olist(block):
     olist_items = re.findall(r'^[0-9]+\. (.*)', block, re.MULTILINE)
-    olist = [f'\t<li>{item}</li>\n' for item in olist_items]
+    olist = [f'<li>{item}</li>\n' for item in olist_items]
     olist.insert(0, '<ol>\n')
     olist.append('</ol>')
     return ''.join(olist)
@@ -295,7 +295,6 @@ def markdown_to_html_node(markdown):
     children_nodes = []
     if markdown:
         blocks = markdown_to_blocks(markdown)
-        print(blocks)
         for block in blocks:
             block_type = block_to_block_type(block)
             if block_type == BlockType.CODE:
@@ -305,19 +304,16 @@ def markdown_to_html_node(markdown):
                 match block_type:
                     case BlockType.HEADING:
                         block = process_heading(block)
-                    case BlockType.CODE:
-                        pass
                     case BlockType.QUOTE:
-                        pass
+                        block = process_quotes(block)
                     case BlockType.ULIST:
-                        pass
+                        block = process_ulist(block)
                     case BlockType.OLIST:
-                        pass
+                        block = process_olist(block)
                     case BlockType.PARAGRAPH:
-                        
                         block = process_paragraph(block)
                     case _:
-                        pass
+                        block = process_paragraph(block)
                 text_nodes = text_to_text_nodes(block)
             text_nodes.insert(0, blank_node)
             text_nodes.append(blank_node)
@@ -325,6 +321,5 @@ def markdown_to_html_node(markdown):
                 leafnode = text_node_to_html_leaf_node(text_node)
                 children_nodes.append(leafnode)
         html_node = ParentNode('div', '', children_nodes)
-    # print(html_node.to_html())
     return html_node
 
