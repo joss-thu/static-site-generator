@@ -80,14 +80,18 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, bas
                 os.makedirs(dest_dir)
             generate_pages_recursive(src_file, template_path, dest_dir, base_path)
         if os.path.isfile(src_file):
-            print(f'Coyping file: {src_file}')
+            print(f'Copying file: {src_file}')
             if file_name[-3:] == '.md':
                 file_name = file_name[:-3] + '.html'
                 dest_file = os.path.abspath(os.path.join(dest_dir_path, file_name))
                 print(f'Destination path: {dest_file}')
                 generate_page(src_file, template_path, dest_file, base_path)
             else:
-                continue
+                print(f'Coyping file: {src_file}')
+                dest_file = os.path.abspath(os.path.join(dest_dir_path, file_name))
+                print(f'Destination path: {dest_file}')
+                paste_path = shutil.copy(src_file, dest_file)
+                print(f'New file at: {paste_path}')
 
 
 
