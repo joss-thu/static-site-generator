@@ -1,1 +1,3 @@
-python3 ./src/main.py
+# Local deployment
+python3 -m src.main
+cd public && python3 -m http.server 8888

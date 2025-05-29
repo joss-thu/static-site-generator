@@ -20,6 +20,14 @@ src.main module
    :undoc-members:
    :show-inheritance:
 
+src.site\_operations module
+---------------------------
+
+.. automodule:: src.site_operations
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 src.textnode module
 -------------------
 

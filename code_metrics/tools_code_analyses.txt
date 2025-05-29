@@ -1,13 +1,13 @@
 UML: 
 pyreverse
 ````
-pyreverse -o png --colorized -p SSG -d ./code_analyses/ ./src/
+pyreverse -o png --colorized -p SSG -d ./code_metrics/ ./src/
 ```
 
 Method-dependencies:
 code2flow
 ```
-code2flow --exclude-functions __init__ ./src/* -o ./code_analyses/method_dependencies.png
+code2flow --exclude-functions __init__ ./src/* -o ./code_metrics/method_dependencies.png
 ```
 
 code-metrics:

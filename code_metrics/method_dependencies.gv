@@ -14,78 +14,107 @@ subgraph legend{
         <tr><td>Function call</td><td><font color='black'>&#8594;</font></td></tr>
         </table></td></tr></table>
         >];
-}node_a02063cc [label="113: props_to_html()" name="htmlnode::HTMLNode.props_to_html" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_0928c6c1 [label="186: to_html()" name="htmlnode::LeafNode.to_html" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
-node_4678e5ed [label="240: to_html()" name="htmlnode::ParentNode.to_html" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
-node_578975c4 [label="264: block_to_block_type()" name="htmlnode::block_to_block_type" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_115bb15d [label="37: get_text_type_from_delimiter()" name="textnode::get_text_type_from_delimiter" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_eddccc70 [label="115: extract_markdown_images()" name="transformation::extract_markdown_images" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_a75f6842 [label="101: extract_markdown_links()" name="transformation::extract_markdown_links" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_1c1dc0c2 [label="240: markdown_to_blocks()" name="transformation::markdown_to_blocks" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_5f975391 [label="293: markdown_to_html_node()" name="transformation::markdown_to_html_node" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
-node_6351a863 [label="266: process_code()" name="transformation::process_code" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_1b8320f4 [label="260: process_heading()" name="transformation::process_heading" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_d5683684 [label="282: process_olist()" name="transformation::process_olist" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_d24a84fe [label="289: process_paragraph()" name="transformation::process_paragraph" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_90407701 [label="270: process_quotes()" name="transformation::process_quotes" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_6139a97c [label="275: process_ulist()" name="transformation::process_ulist" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
-node_0840f19d [label="130: split_text_image_into_text_nodes()" name="transformation::split_text_image_into_text_nodes" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
-node_e5db025c [label="67: split_text_into_nodes_delimiter()" name="transformation::split_text_into_nodes_delimiter" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
-node_9be68c7f [label="173: split_text_links_into_text_nodes()" name="transformation::split_text_links_into_text_nodes" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
-node_c325692f [label="216: text_to_text_nodes()" name="transformation::text_to_text_nodes" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
-node_0928c6c1 -> node_a02063cc [color="#E69F00" penwidth="2"];
-node_4678e5ed -> node_a02063cc [color="#0072B2" penwidth="2"];
-node_5f975391 -> node_578975c4 [color="#E69F00" penwidth="2"];
-node_5f975391 -> node_1c1dc0c2 [color="#E69F00" penwidth="2"];
-node_5f975391 -> node_6351a863 [color="#E69F00" penwidth="2"];
-node_5f975391 -> node_1b8320f4 [color="#E69F00" penwidth="2"];
-node_5f975391 -> node_d5683684 [color="#E69F00" penwidth="2"];
-node_5f975391 -> node_d24a84fe [color="#E69F00" penwidth="2"];
-node_5f975391 -> node_90407701 [color="#E69F00" penwidth="2"];
-node_5f975391 -> node_6139a97c [color="#E69F00" penwidth="2"];
-node_0840f19d -> node_eddccc70 [color="#0072B2" penwidth="2"];
-node_e5db025c -> node_115bb15d [color="#F0E442" penwidth="2"];
-node_9be68c7f -> node_a75f6842 [color="#CC79A7" penwidth="2"];
-node_c325692f -> node_0840f19d [color="#CC79A7" penwidth="2"];
-node_c325692f -> node_e5db025c [color="#CC79A7" penwidth="2"];
-node_c325692f -> node_9be68c7f [color="#CC79A7" penwidth="2"];
-subgraph cluster_2e3a1007 {
-    node_578975c4;
+}node_8ba48d17 [label="113: props_to_html()" name="htmlnode::HTMLNode.props_to_html" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_1ed31513 [label="186: to_html()" name="htmlnode::LeafNode.to_html" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
+node_ca60b9f1 [label="240: to_html()" name="htmlnode::ParentNode.to_html" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
+node_f1bc3c9e [label="264: block_to_block_type()" name="htmlnode::block_to_block_type" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_d8db5049 [label="0: (global)()" name="main::(global)" shape="rect" style="rounded,filled" fillcolor="#966F33" ];
+node_2e3863e2 [label="20: copy_contents()" name="site_operations::copy_contents" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
+node_2daec896 [label="5: create_dest_folder()" name="site_operations::create_dest_folder" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_4b6c87aa [label="40: extract_title()" name="site_operations::extract_title" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_8a90448a [label="48: generate_page()" name="site_operations::generate_page" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
+node_eefa88ed [label="37: get_text_type_from_delimiter()" name="textnode::get_text_type_from_delimiter" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_4a1ffe7f [label="115: extract_markdown_images()" name="transformation::extract_markdown_images" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_331100d9 [label="101: extract_markdown_links()" name="transformation::extract_markdown_links" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_bcb129be [label="240: markdown_to_blocks()" name="transformation::markdown_to_blocks" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_23837874 [label="293: markdown_to_html_node()" name="transformation::markdown_to_html_node" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
+node_b099480a [label="266: process_code()" name="transformation::process_code" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_e1ec9eee [label="260: process_heading()" name="transformation::process_heading" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_7b981184 [label="282: process_olist()" name="transformation::process_olist" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_d78e69cb [label="289: process_paragraph()" name="transformation::process_paragraph" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_20b3f26c [label="270: process_quotes()" name="transformation::process_quotes" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_c303b94c [label="275: process_ulist()" name="transformation::process_ulist" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_920866c4 [label="130: split_text_image_into_text_nodes()" name="transformation::split_text_image_into_text_nodes" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
+node_5ecbeeca [label="67: split_text_into_nodes_delimiter()" name="transformation::split_text_into_nodes_delimiter" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
+node_b9ffe5ba [label="173: split_text_links_into_text_nodes()" name="transformation::split_text_links_into_text_nodes" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
+node_a7330fff [label="37: text_node_to_html_leaf_node()" name="transformation::text_node_to_html_leaf_node" shape="rect" style="rounded,filled" fillcolor="#6db33f" ];
+node_0c33239a [label="216: text_to_text_nodes()" name="transformation::text_to_text_nodes" shape="rect" style="rounded,filled" fillcolor="#cccccc" ];
+node_1ed31513 -> node_8ba48d17 [color="#009E73" penwidth="2"];
+node_ca60b9f1 -> node_8ba48d17 [color="#E69F00" penwidth="2"];
+node_d8db5049 -> node_2e3863e2 [color="#E69F00" penwidth="2"];
+node_d8db5049 -> node_2daec896 [color="#E69F00" penwidth="2"];
+node_d8db5049 -> node_8a90448a [color="#E69F00" penwidth="2"];
+node_2e3863e2 -> node_2e3863e2 [color="#56B4E9" penwidth="2"];
+node_8a90448a -> node_4b6c87aa [color="#56B4E9" penwidth="2"];
+node_8a90448a -> node_23837874 [color="#56B4E9" penwidth="2"];
+node_23837874 -> node_f1bc3c9e [color="#F0E442" penwidth="2"];
+node_23837874 -> node_bcb129be [color="#F0E442" penwidth="2"];
+node_23837874 -> node_b099480a [color="#F0E442" penwidth="2"];
+node_23837874 -> node_e1ec9eee [color="#F0E442" penwidth="2"];
+node_23837874 -> node_7b981184 [color="#F0E442" penwidth="2"];
+node_23837874 -> node_d78e69cb [color="#F0E442" penwidth="2"];
+node_23837874 -> node_d78e69cb [color="#F0E442" penwidth="2"];
+node_23837874 -> node_20b3f26c [color="#F0E442" penwidth="2"];
+node_23837874 -> node_c303b94c [color="#F0E442" penwidth="2"];
+node_23837874 -> node_a7330fff [color="#F0E442" penwidth="2"];
+node_23837874 -> node_0c33239a [color="#F0E442" penwidth="2"];
+node_920866c4 -> node_4a1ffe7f [color="#F0E442" penwidth="2"];
+node_5ecbeeca -> node_eefa88ed [color="#56B4E9" penwidth="2"];
+node_b9ffe5ba -> node_331100d9 [color="#56B4E9" penwidth="2"];
+node_0c33239a -> node_920866c4 [color="#56B4E9" penwidth="2"];
+node_0c33239a -> node_5ecbeeca [color="#56B4E9" penwidth="2"];
+node_0c33239a -> node_b9ffe5ba [color="#56B4E9" penwidth="2"];
+subgraph cluster_55e36ac7 {
+    node_f1bc3c9e;
     label="File: htmlnode";
     name="htmlnode";
     style="filled";
     graph[style=dotted];
-    subgraph cluster_6f06f9fa {
-        node_a02063cc;
+    subgraph cluster_6139ae45 {
+        node_8ba48d17;
         label="Class: HTMLNode";
         name="HTMLNode";
         style="filled";
         graph[style=dotted];
     };
-    subgraph cluster_55e200b4 {
-        node_0928c6c1;
+    subgraph cluster_4ebeaaa9 {
+        node_1ed31513;
         label="Class: LeafNode";
         name="LeafNode";
         style="filled";
         graph[style=dotted];
     };
-    subgraph cluster_4b3a796b {
-        node_4678e5ed;
+    subgraph cluster_18f0ab29 {
+        node_ca60b9f1;
         label="Class: ParentNode";
         name="ParentNode";
         style="filled";
         graph[style=dotted];
     };
 };
-subgraph cluster_2ede6eaa {
-    node_115bb15d;
+subgraph cluster_cd3dbdab {
+    node_d8db5049;
+    label="File: main";
+    name="main";
+    style="filled";
+    graph[style=dotted];
+};
+subgraph cluster_9ddbf340 {
+    node_2daec896 node_2e3863e2 node_4b6c87aa node_8a90448a;
+    label="File: site_operations";
+    name="site_operations";
+    style="filled";
+    graph[style=dotted];
+};
+subgraph cluster_b0906103 {
+    node_eefa88ed;
     label="File: textnode";
     name="textnode";
     style="filled";
     graph[style=dotted];
 };
-subgraph cluster_e626cf2a {
-    node_e5db025c node_a75f6842 node_eddccc70 node_0840f19d node_9be68c7f node_c325692f node_1c1dc0c2 node_1b8320f4 node_6351a863 node_90407701 node_6139a97c node_d5683684 node_d24a84fe node_5f975391;
+subgraph cluster_e8fbb031 {
+    node_a7330fff node_5ecbeeca node_331100d9 node_4a1ffe7f node_920866c4 node_b9ffe5ba node_0c33239a node_bcb129be node_e1ec9eee node_b099480a node_20b3f26c node_c303b94c node_7b981184 node_d78e69cb node_23837874;
     label="File: transformation";
     name="transformation";
     style="filled";

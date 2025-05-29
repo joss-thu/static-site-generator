@@ -16,42 +16,7 @@
 
 - Write the full HTML string to a file for that page in the /public directory.
 
-- -------
-## textnode.py
-- Enum TextType
-- class TextNode(text, text_type, url)
+[Classes overview](../code_metrics/classes_SSG.png) |
+[Packages overview](../code_metrics/packages_SSG.png) |
+[Methods dependencies](../code_metrics/method_dependencies.png)
 
-## htmlnode.py
-- HTMLNode(tag, value, children, props)
-    - props_to_html(props) -> 
-        str for tag parameters
-    - to_html() -> 
-    to be overrridden
-- LeafNode() -> 
-has Tag, value, props. No children allowed
-- ParentNode() -> 
-allows nested tags and multiple tags on the same level. Values are also permitted.
-
-## transformation.py
-### Text transformations
-#### To Inline Textnode transformations:
-- markdown_to_text_nodes(text) -> text_node 
-Deal with markdown delimiters (for bold, italic, code etc.), images and links
-1. split_text_delimiter()
-2. split_text_image()
-    - Extract the anchor text and corresponding image link
-    - Convert the provided image part into TextNode of IMAGE type. Other parts are retained as Textnodes of type TEXT.
-3. split_text_link()
-    - Extract the anchor text and corresponding link
-    - Convert the provided link part into TextNode of LINK type. Other parts are retained as Textnodes of type TEXT.
-4. textnode_to_leaf_node(text_node) ->  LeafNode 
-Convert markdown textnodes to html (leaf nodes) with suitable tags
-
-
-### Block text transformations:
-- Convert a block into a list of strings, seperated by the new line separations. Preserve all symbols, e.g. '-' should be preserved for a list.
-- Identify the type of markdown node (bold, italics etc.) for the extracted list of strings, so that text nodes can be produced from these strings;
-- which in turn can be converted to html nodes.
-
-
-### To HTML transformations:

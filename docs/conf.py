@@ -10,8 +10,8 @@ sys.path.insert(0, os.path.abspath(".."))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Static Website Generator'
-copyright = '2025, JossCodes'
-author = 'JossCodes'
+copyright = '2025, jossCodes'
+author = 'jossCodes'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
