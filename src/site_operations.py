@@ -92,11 +92,3 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, bas
                 print(f'Destination path: {dest_file}')
                 paste_path = shutil.copy(src_file, dest_file)
                 print(f'New file at: {paste_path}')
-
-
-
-
-    
-    
-
-
