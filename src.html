@@ -1,0 +1,1047 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="src" href="modules.html" />
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>src package - Static Website Generator documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  --color-brand-primary: red;
+  --color-brand-content: #CC3333;
+  --color-admonition-background: orange;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Static Website Generator  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/joss_codes.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Static Website Generator  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">src</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of src</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">src package</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/src.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="src-package">
+<h1>src package<a class="headerlink" href="#src-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-src.htmlnode">
+<span id="src-htmlnode-module"></span><h2>src.htmlnode module<a class="headerlink" href="#module-src.htmlnode" title="Link to this heading">¶</a></h2>
+<p>Provides classes and functions for representing, manipulating, and converting HTML nodes,
+as well as for detecting block types from markdown-like text.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>BlockType (Enum): Enum representing common HTML block elements (paragraph, heading, code, quote, unordered list, ordered list).
+HTMLNode: Base class for HTML element nodes, intended to be extended by LeafNode and ParentNode.
+LeafNode: Represents an HTML node with no children (e.g., text, images, inline elements).
+ParentNode: Represents an HTML node that can contain child nodes (e.g., paragraphs, lists, block elements).</p>
+</dd>
+<dt>Functions:</dt><dd><p>block_to_block_type(block_text): Determines the block type of a given text block based on markdown-like syntax.</p>
+</dd>
+<dt>Usage:</dt><dd><p>These classes and functions are used to build and render HTML structures programmatically,
+and to parse markdown-like text into structured HTML nodes.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.htmlnode.BlockType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.htmlnode.</span></span><span class="sig-name descname"><span class="pre">BlockType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#BlockType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.BlockType" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Enum representing common HTML block elements.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>PARAGRAPH: A standard paragraph block.</p></li>
+<li><p>HEADING: A heading block (e.g., &lt;h1&gt;, &lt;h2&gt;, …).</p></li>
+<li><p>CODE: A code block.</p></li>
+<li><p>QUOTE: A blockquote.</p></li>
+<li><p>ULIST: An unordered list.</p></li>
+<li><p>OLIST: An ordered list.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.BlockType.CODE">
+<span class="sig-name descname"><span class="pre">CODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'code'</span></em><a class="headerlink" href="#src.htmlnode.BlockType.CODE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.BlockType.HEADING">
+<span class="sig-name descname"><span class="pre">HEADING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'h'</span></em><a class="headerlink" href="#src.htmlnode.BlockType.HEADING" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.BlockType.OLIST">
+<span class="sig-name descname"><span class="pre">OLIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ol'</span></em><a class="headerlink" href="#src.htmlnode.BlockType.OLIST" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.BlockType.PARAGRAPH">
+<span class="sig-name descname"><span class="pre">PARAGRAPH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'p'</span></em><a class="headerlink" href="#src.htmlnode.BlockType.PARAGRAPH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.BlockType.QUOTE">
+<span class="sig-name descname"><span class="pre">QUOTE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'blockquote'</span></em><a class="headerlink" href="#src.htmlnode.BlockType.QUOTE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.BlockType.ULIST">
+<span class="sig-name descname"><span class="pre">ULIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ul'</span></em><a class="headerlink" href="#src.htmlnode.BlockType.ULIST" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLNode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.htmlnode.</span></span><span class="sig-name descname"><span class="pre">HTMLNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#HTMLNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.HTMLNode" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the basic HTML element node.</p>
+<p>This class is intended to be extended by the <cite>LeafNode</cite> and <cite>ParentNode</cite> classes.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>tag (str or None):</dt><dd><p>The HTML tag for the elements.
+- ‘b’ -&gt; bold,
+- ‘i’ -&gt; italic,
+- ‘code’ -&gt; code,
+- ‘img’ -&gt; image,
+- ‘a’ -&gt; link,
+- ‘’ -&gt; None (for plain text)</p>
+</dd>
+<dt>value (str or None): </dt><dd><p>The text value for the HTML node.</p>
+</dd>
+<dt>children (list[HTMLNode] or None):</dt><dd><p>List of child HTMLNode objects, if any.</p>
+</dd>
+<dt>props (dict or None):</dt><dd><p>Dictionary of HTML attributes (e.g., {‘src’: ‘img.png’, ‘alt’: ‘desc’}).</p>
+</dd>
+</dl>
+</dd>
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>__init__(tag=None, value=None, children=None, props=None):</dt><dd><p>Initializes an HTMLNode instance with the given tag, value, children, and props.</p>
+</dd>
+<dt>to_html():</dt><dd><p>Converts the HTMLNode instance to its HTML string representation.
+Should be implemented by subclasses. Raises NotImplementedError if called on HTMLNode.</p>
+</dd>
+<dt>props_to_html():</dt><dd><p>Converts the props dictionary to a string of HTML attributes.</p>
+</dd>
+<dt>__eq__(other):</dt><dd><p>Checks equality between this HTMLNode and another.</p>
+</dd>
+<dt>__repr__():</dt><dd><p>Returns a string representation of the HTMLNode instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLNode.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#HTMLNode.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.HTMLNode.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes an HTMLNode instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLNode.is_LeafNode">
+<span class="sig-name descname"><span class="pre">is_LeafNode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#HTMLNode.is_LeafNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.HTMLNode.is_LeafNode" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLNode.props_to_html">
+<span class="sig-name descname"><span class="pre">props_to_html</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#HTMLNode.props_to_html"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.HTMLNode.props_to_html" title="Link to this definition">¶</a></dt>
+<dd><p>Converts the props dictionary to a string of HTML attributes.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: A string of HTML attributes (e.g., ‘src=”img.png” alt=”desc”’).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLNode.to_html">
+<span class="sig-name descname"><span class="pre">to_html</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#HTMLNode.to_html"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.HTMLNode.to_html" title="Link to this definition">¶</a></dt>
+<dd><p>Converts the HTMLNode instance to its HTML string representation.</p>
+<p>This method should be implemented by subclasses (LeafNode or ParentNode).</p>
+<dl class="simple">
+<dt>Raises:</dt><dd><p>NotImplementedError: If called on the base HTMLNode class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLTag">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.htmlnode.</span></span><span class="sig-name descname"><span class="pre">HTMLTag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#HTMLTag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.HTMLTag" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLTag.BOLD">
+<span class="sig-name descname"><span class="pre">BOLD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'b'</span></em><a class="headerlink" href="#src.htmlnode.HTMLTag.BOLD" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLTag.CODE">
+<span class="sig-name descname"><span class="pre">CODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'code'</span></em><a class="headerlink" href="#src.htmlnode.HTMLTag.CODE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLTag.IMAGE">
+<span class="sig-name descname"><span class="pre">IMAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'img'</span></em><a class="headerlink" href="#src.htmlnode.HTMLTag.IMAGE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLTag.ITALIC">
+<span class="sig-name descname"><span class="pre">ITALIC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'i'</span></em><a class="headerlink" href="#src.htmlnode.HTMLTag.ITALIC" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLTag.LINK">
+<span class="sig-name descname"><span class="pre">LINK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'a'</span></em><a class="headerlink" href="#src.htmlnode.HTMLTag.LINK" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.htmlnode.HTMLTag.TEXT">
+<span class="sig-name descname"><span class="pre">TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#src.htmlnode.HTMLTag.TEXT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.htmlnode.LeafNode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.htmlnode.</span></span><span class="sig-name descname"><span class="pre">LeafNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#LeafNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.LeafNode" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.htmlnode.HTMLNode" title="src.htmlnode.HTMLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMLNode</span></code></a></p>
+<p>Represents an HTML node with no children (a leaf node).</p>
+<p>This class is used for HTML elements that do not contain other HTML nodes,
+such as text, images, or inline elements.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>tag (str or None): </dt><dd><p>The HTML tag for the element (e.g., ‘b’, ‘img’, ‘a’).</p>
+</dd>
+<dt>value (str or None): </dt><dd><p>The text or value for the HTML node.</p>
+</dd>
+<dt>props (dict or None): </dt><dd><p>Dictionary of HTML attributes (e.g., {‘src’: ‘img.png’, ‘alt’: ‘desc’}).</p>
+</dd>
+</dl>
+</dd>
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>to_html(): </dt><dd><p>Returns the HTML string representation of the leaf node.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.LeafNode.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#LeafNode.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.LeafNode.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes a LeafNode instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.LeafNode.is_LeafNode">
+<span class="sig-name descname"><span class="pre">is_LeafNode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.htmlnode.LeafNode.is_LeafNode" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.LeafNode.props_to_html">
+<span class="sig-name descname"><span class="pre">props_to_html</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.htmlnode.LeafNode.props_to_html" title="Link to this definition">¶</a></dt>
+<dd><p>Converts the props dictionary to a string of HTML attributes.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: A string of HTML attributes (e.g., ‘src=”img.png” alt=”desc”’).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.LeafNode.to_html">
+<span class="sig-name descname"><span class="pre">to_html</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#LeafNode.to_html"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.LeafNode.to_html" title="Link to this definition">¶</a></dt>
+<dd><p>Converts the LeafNode instance to its HTML string representation.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: The HTML string for this leaf node.</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: If no value is provided for the leaf node (except for ‘img’ tags with an empty value).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.htmlnode.ParentNode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.htmlnode.</span></span><span class="sig-name descname"><span class="pre">ParentNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#ParentNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.ParentNode" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.htmlnode.HTMLNode" title="src.htmlnode.HTMLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMLNode</span></code></a></p>
+<p>Represents an HTML node that can contain child nodes (a parent node).</p>
+<p>This class is used for HTML elements that can have other HTML nodes as children,
+such as paragraphs, lists, or block elements.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>tag (str or None): </dt><dd><p>The HTML tag for the element (e.g., ‘div’, ‘ul’, ‘p’).</p>
+</dd>
+<dt>value (str or None): </dt><dd><p>The text or value for the HTML node (optional, may be used for wrappers).</p>
+</dd>
+<dt>children (list[HTMLNode] or None): </dt><dd><p>List of child HTMLNode objects.</p>
+</dd>
+<dt>props (dict or None): </dt><dd><p>Dictionary of HTML attributes (e.g., {‘class’: ‘my-class’}).</p>
+</dd>
+</dl>
+</dd>
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>__init__(tag=None, value=None, children=None, props=None):</dt><dd><p>Initializes a ParentNode instance with the given tag, value, children, and props.</p>
+</dd>
+<dt>to_html():</dt><dd><p>Converts the ParentNode instance and its children to an HTML string representation.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.ParentNode.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#ParentNode.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.ParentNode.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes a ParentNode instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.ParentNode.is_LeafNode">
+<span class="sig-name descname"><span class="pre">is_LeafNode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.htmlnode.ParentNode.is_LeafNode" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.ParentNode.props_to_html">
+<span class="sig-name descname"><span class="pre">props_to_html</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.htmlnode.ParentNode.props_to_html" title="Link to this definition">¶</a></dt>
+<dd><p>Converts the props dictionary to a string of HTML attributes.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: A string of HTML attributes (e.g., ‘src=”img.png” alt=”desc”’).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.htmlnode.ParentNode.to_html">
+<span class="sig-name descname"><span class="pre">to_html</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#ParentNode.to_html"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.ParentNode.to_html" title="Link to this definition">¶</a></dt>
+<dd><p>Converts the ParentNode instance and its children to an HTML string representation.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>str: </dt><dd><p>The HTML string for this parent node and its children.</p>
+</dd>
+</dl>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: If no tag or no children are provided for the parent node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.htmlnode.block_to_block_type">
+<span class="sig-prename descclassname"><span class="pre">src.htmlnode.</span></span><span class="sig-name descname"><span class="pre">block_to_block_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/htmlnode.html#block_to_block_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.htmlnode.block_to_block_type" title="Link to this definition">¶</a></dt>
+<dd><p>Determines the block type of a given text block.</p>
+<p>Analyzes the input text and returns the corresponding BlockType enum value
+based on markdown-like syntax patterns (e.g., headings, code blocks, quotes, lists).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>block_text (str): </dt><dd><p>The text block to analyze.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>BlockType: </dt><dd><p>The type of block detected (e.g., HEADING, CODE, QUOTE, ULIST, OLIST, PARAGRAPH).</p>
+</dd>
+</dl>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>Exception: </dt><dd><p>If an ordered list is detected but the numbering format is invalid.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.main">
+<span id="src-main-module"></span><h2>src.main module<a class="headerlink" href="#module-src.main" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-src.site_operations">
+<span id="src-site-operations-module"></span><h2>src.site_operations module<a class="headerlink" href="#module-src.site_operations" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.site_operations.copy_contents">
+<span class="sig-prename descclassname"><span class="pre">src.site_operations.</span></span><span class="sig-name descname"><span class="pre">copy_contents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/site_operations.html#copy_contents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.site_operations.copy_contents" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.site_operations.create_dest_folder">
+<span class="sig-prename descclassname"><span class="pre">src.site_operations.</span></span><span class="sig-name descname"><span class="pre">create_dest_folder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/site_operations.html#create_dest_folder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.site_operations.create_dest_folder" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.site_operations.extract_title">
+<span class="sig-prename descclassname"><span class="pre">src.site_operations.</span></span><span class="sig-name descname"><span class="pre">extract_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">markdown</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/site_operations.html#extract_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.site_operations.extract_title" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.site_operations.generate_page">
+<span class="sig-prename descclassname"><span class="pre">src.site_operations.</span></span><span class="sig-name descname"><span class="pre">generate_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/site_operations.html#generate_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.site_operations.generate_page" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.site_operations.generate_pages_recursive">
+<span class="sig-prename descclassname"><span class="pre">src.site_operations.</span></span><span class="sig-name descname"><span class="pre">generate_pages_recursive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path_content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_dir_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/site_operations.html#generate_pages_recursive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.site_operations.generate_pages_recursive" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-src.textnode">
+<span id="src-textnode-module"></span><h2>src.textnode module<a class="headerlink" href="#module-src.textnode" title="Link to this heading">¶</a></h2>
+<p>Defines classes and functions for representing and manipulating markdown text nodes.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><dl class="simple">
+<dt>TextType (Enum): </dt><dd><p>Enum representing different types of text formatting (plain, bold, italic, code, link, image).</p>
+</dd>
+<dt>TextNode: </dt><dd><p>Represents a piece of text with a specific type and optional URL.</p>
+</dd>
+</dl>
+</dd>
+<dt>Functions:</dt><dd><dl class="simple">
+<dt>get_text_type_from_delimiter(delimiter):</dt><dd><p>Returns the corresponding TextType for a given markdown delimiter, or None if not found.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.textnode.TextNode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.textnode.</span></span><span class="sig-name descname"><span class="pre">TextNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">TextType.TEXT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/textnode.html#TextNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.textnode.TextNode" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a piece of text with a specific formatting type and optional URL.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>text (str): The text content of the node.
+text_type (TextType): The formatting type of the text (e.g., plain, bold, italic, code, link, image).
+url (str or None): The URL associated with the text (used for links and images).</p>
+</dd>
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>__init__(text, text_type=TextType.TEXT, url=None):</dt><dd><p>Initializes a TextNode with the given text, type, and optional URL.</p>
+</dd>
+<dt>__eq__(other):</dt><dd><p>Checks equality between this TextNode and another.</p>
+</dd>
+<dt>__repr__():</dt><dd><p>Returns a string representation of the TextNode instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.textnode.TextNode.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">TextType.TEXT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/textnode.html#TextNode.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.textnode.TextNode.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes a TextNode instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.textnode.TextType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.textnode.</span></span><span class="sig-name descname"><span class="pre">TextType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/textnode.html#TextType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.textnode.TextType" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Enum representing different types of text formatting for markdown nodes.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><p>TEXT: Plain text (no formatting).
+BOLD: Bold text, represented by ‘**’ in markdown.
+ITALIC: Italic text, represented by ‘_’ in markdown.
+CODE: Inline code, represented by ‘`’ in markdown.
+LINK: Hyperlink text.
+IMAGE: Image element.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.textnode.TextType.BOLD">
+<span class="sig-name descname"><span class="pre">BOLD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'**'</span></em><a class="headerlink" href="#src.textnode.TextType.BOLD" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.textnode.TextType.CODE">
+<span class="sig-name descname"><span class="pre">CODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'`'</span></em><a class="headerlink" href="#src.textnode.TextType.CODE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.textnode.TextType.IMAGE">
+<span class="sig-name descname"><span class="pre">IMAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'image'</span></em><a class="headerlink" href="#src.textnode.TextType.IMAGE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.textnode.TextType.ITALIC">
+<span class="sig-name descname"><span class="pre">ITALIC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'_'</span></em><a class="headerlink" href="#src.textnode.TextType.ITALIC" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.textnode.TextType.LINK">
+<span class="sig-name descname"><span class="pre">LINK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'link'</span></em><a class="headerlink" href="#src.textnode.TextType.LINK" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.textnode.TextType.TEXT">
+<span class="sig-name descname"><span class="pre">TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#src.textnode.TextType.TEXT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.textnode.get_text_type_from_delimiter">
+<span class="sig-prename descclassname"><span class="pre">src.textnode.</span></span><span class="sig-name descname"><span class="pre">get_text_type_from_delimiter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delimiter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/textnode.html#get_text_type_from_delimiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.textnode.get_text_type_from_delimiter" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the corresponding TextType for a given markdown delimiter.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>delimiter (str): </dt><dd><p>The markdown delimiter to look up (e.g., ‘**’, ‘_’, ‘`’, ‘link’, ‘image’).</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>TextType or None: </dt><dd><p>The matching TextType enum member if found, otherwise None.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.transformation">
+<span id="src-transformation-module"></span><h2>src.transformation module<a class="headerlink" href="#module-src.transformation" title="Link to this heading">¶</a></h2>
+<p>Provides functions for transforming markdown text into structured text nodes and HTML nodes.</p>
+<dl class="simple">
+<dt>Functions:</dt><dd><dl class="simple">
+<dt>text_node_to_html_leaf_node(text_node):</dt><dd><p>Converts a TextNode instance to a corresponding LeafNode for HTML rendering.</p>
+</dd>
+<dt>split_text_into_nodes_delimiter(old_nodes, delimiter):</dt><dd><p>Splits text nodes into multiple nodes based on a markdown delimiter (e.g., ‘**’, ‘_’, ‘`’).</p>
+</dd>
+<dt>extract_markdown_links(text):</dt><dd><p>Extracts markdown-style links from the given text.</p>
+</dd>
+<dt>extract_markdown_images(text):</dt><dd><p>Extracts markdown-style images from the given text.</p>
+</dd>
+<dt>split_text_image_into_text_nodes(old_nodes):</dt><dd><p>Splits text nodes into separate nodes for images and surrounding text.</p>
+</dd>
+<dt>split_text_links_into_text_nodes(old_nodes):</dt><dd><p>Splits text nodes into separate nodes for links and surrounding text.</p>
+</dd>
+<dt>text_to_text_nodes(text):</dt><dd><p>Converts a markdown string into a list of TextNode objects, handling formatting, images, and links.</p>
+</dd>
+<dt>markdown_to_blocks(markdown_text):</dt><dd><p>Splits markdown text into blocks separated by double newlines.</p>
+</dd>
+</dl>
+</dd>
+<dt>Usage:</dt><dd><p>Use these functions to parse markdown content, extract formatting, and convert it into a structure suitable for HTML rendering.</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.extract_markdown_images">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">extract_markdown_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#extract_markdown_images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.extract_markdown_images" title="Link to this definition">¶</a></dt>
+<dd><p>Extracts markdown-style images from the given text.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text (str): The text to search for images.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[tuple[str, str]]: List of (alt_text, url) tuples.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.extract_markdown_links">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">extract_markdown_links</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#extract_markdown_links"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.extract_markdown_links" title="Link to this definition">¶</a></dt>
+<dd><p>Extracts markdown-style links from the given text.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text (str): The text to search for links.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[tuple[str, str]]: List of (link_text, url) tuples.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.markdown_to_blocks">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">markdown_to_blocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">markdown_text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#markdown_to_blocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.markdown_to_blocks" title="Link to this definition">¶</a></dt>
+<dd><p>Splits markdown text into blocks separated by double newlines.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>markdown_text (str): The markdown text to split.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[str]: List of text blocks.</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception: If the input is empty or only whitespace.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.markdown_to_html_node">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">markdown_to_html_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">markdown</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#markdown_to_html_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.markdown_to_html_node" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.process_code">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">process_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#process_code"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.process_code" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.process_heading">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">process_heading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#process_heading"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.process_heading" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.process_olist">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">process_olist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#process_olist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.process_olist" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.process_paragraph">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">process_paragraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#process_paragraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.process_paragraph" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.process_quotes">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">process_quotes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#process_quotes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.process_quotes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.process_ulist">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">process_ulist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#process_ulist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.process_ulist" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.split_text_image_into_text_nodes">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">split_text_image_into_text_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_nodes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#split_text_image_into_text_nodes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.split_text_image_into_text_nodes" title="Link to this definition">¶</a></dt>
+<dd><p>Splits text nodes into separate nodes for images and surrounding text.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>old_nodes (list[TextNode]): List of TextNode objects to process.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[TextNode]: List of TextNode objects with images separated.</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception: If no nodes are passed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.split_text_into_nodes_delimiter">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">split_text_into_nodes_delimiter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#split_text_into_nodes_delimiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.split_text_into_nodes_delimiter" title="Link to this definition">¶</a></dt>
+<dd><p>Splits text nodes into multiple nodes based on a markdown delimiter.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>old_nodes (list[TextNode]): List of TextNode objects to process.
+delimiter (str): The markdown delimiter to split on (e.g., ‘**’, ‘_’, ‘`’).</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[TextNode]: List of TextNode objects with formatting applied.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.split_text_links_into_text_nodes">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">split_text_links_into_text_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_nodes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#split_text_links_into_text_nodes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.split_text_links_into_text_nodes" title="Link to this definition">¶</a></dt>
+<dd><p>Splits text nodes into separate nodes for links and surrounding text.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>old_nodes (list[TextNode]): List of TextNode objects to process.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[TextNode]: List of TextNode objects with links separated.</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception: If no nodes are passed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.text_node_to_html_leaf_node">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">text_node_to_html_leaf_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#text_node_to_html_leaf_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.text_node_to_html_leaf_node" title="Link to this definition">¶</a></dt>
+<dd><p>Converts a TextNode instance to a corresponding LeafNode for HTML rendering.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text_node (TextNode): The TextNode to convert.</p>
+</dd>
+<dt>Returns:</dt><dd><p>LeafNode: The corresponding HTML leaf node.</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception: If the text type is invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.transformation.text_to_text_nodes">
+<span class="sig-prename descclassname"><span class="pre">src.transformation.</span></span><span class="sig-name descname"><span class="pre">text_to_text_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/transformation.html#text_to_text_nodes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformation.text_to_text_nodes" title="Link to this definition">¶</a></dt>
+<dd><p>Converts a markdown string into a list of TextNode objects, handling formatting, images, and links.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text (str): The markdown text to convert.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list[TextNode]: List of TextNode objects representing the parsed text.</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception: If no text is passed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="modules.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">src</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, jossCodes
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">src package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-src.htmlnode">src.htmlnode module</a><ul>
+<li><a class="reference internal" href="#src.htmlnode.BlockType"><code class="docutils literal notranslate"><span class="pre">BlockType</span></code></a><ul>
+<li><a class="reference internal" href="#src.htmlnode.BlockType.CODE"><code class="docutils literal notranslate"><span class="pre">BlockType.CODE</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.BlockType.HEADING"><code class="docutils literal notranslate"><span class="pre">BlockType.HEADING</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.BlockType.OLIST"><code class="docutils literal notranslate"><span class="pre">BlockType.OLIST</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.BlockType.PARAGRAPH"><code class="docutils literal notranslate"><span class="pre">BlockType.PARAGRAPH</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.BlockType.QUOTE"><code class="docutils literal notranslate"><span class="pre">BlockType.QUOTE</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.BlockType.ULIST"><code class="docutils literal notranslate"><span class="pre">BlockType.ULIST</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.htmlnode.HTMLNode"><code class="docutils literal notranslate"><span class="pre">HTMLNode</span></code></a><ul>
+<li><a class="reference internal" href="#src.htmlnode.HTMLNode.__init__"><code class="docutils literal notranslate"><span class="pre">HTMLNode.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.HTMLNode.is_LeafNode"><code class="docutils literal notranslate"><span class="pre">HTMLNode.is_LeafNode()</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.HTMLNode.props_to_html"><code class="docutils literal notranslate"><span class="pre">HTMLNode.props_to_html()</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.HTMLNode.to_html"><code class="docutils literal notranslate"><span class="pre">HTMLNode.to_html()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.htmlnode.HTMLTag"><code class="docutils literal notranslate"><span class="pre">HTMLTag</span></code></a><ul>
+<li><a class="reference internal" href="#src.htmlnode.HTMLTag.BOLD"><code class="docutils literal notranslate"><span class="pre">HTMLTag.BOLD</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.HTMLTag.CODE"><code class="docutils literal notranslate"><span class="pre">HTMLTag.CODE</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.HTMLTag.IMAGE"><code class="docutils literal notranslate"><span class="pre">HTMLTag.IMAGE</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.HTMLTag.ITALIC"><code class="docutils literal notranslate"><span class="pre">HTMLTag.ITALIC</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.HTMLTag.LINK"><code class="docutils literal notranslate"><span class="pre">HTMLTag.LINK</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.HTMLTag.TEXT"><code class="docutils literal notranslate"><span class="pre">HTMLTag.TEXT</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.htmlnode.LeafNode"><code class="docutils literal notranslate"><span class="pre">LeafNode</span></code></a><ul>
+<li><a class="reference internal" href="#src.htmlnode.LeafNode.__init__"><code class="docutils literal notranslate"><span class="pre">LeafNode.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.LeafNode.is_LeafNode"><code class="docutils literal notranslate"><span class="pre">LeafNode.is_LeafNode()</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.LeafNode.props_to_html"><code class="docutils literal notranslate"><span class="pre">LeafNode.props_to_html()</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.LeafNode.to_html"><code class="docutils literal notranslate"><span class="pre">LeafNode.to_html()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.htmlnode.ParentNode"><code class="docutils literal notranslate"><span class="pre">ParentNode</span></code></a><ul>
+<li><a class="reference internal" href="#src.htmlnode.ParentNode.__init__"><code class="docutils literal notranslate"><span class="pre">ParentNode.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.ParentNode.is_LeafNode"><code class="docutils literal notranslate"><span class="pre">ParentNode.is_LeafNode()</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.ParentNode.props_to_html"><code class="docutils literal notranslate"><span class="pre">ParentNode.props_to_html()</span></code></a></li>
+<li><a class="reference internal" href="#src.htmlnode.ParentNode.to_html"><code class="docutils literal notranslate"><span class="pre">ParentNode.to_html()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.htmlnode.block_to_block_type"><code class="docutils literal notranslate"><span class="pre">block_to_block_type()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.main">src.main module</a></li>
+<li><a class="reference internal" href="#module-src.site_operations">src.site_operations module</a><ul>
+<li><a class="reference internal" href="#src.site_operations.copy_contents"><code class="docutils literal notranslate"><span class="pre">copy_contents()</span></code></a></li>
+<li><a class="reference internal" href="#src.site_operations.create_dest_folder"><code class="docutils literal notranslate"><span class="pre">create_dest_folder()</span></code></a></li>
+<li><a class="reference internal" href="#src.site_operations.extract_title"><code class="docutils literal notranslate"><span class="pre">extract_title()</span></code></a></li>
+<li><a class="reference internal" href="#src.site_operations.generate_page"><code class="docutils literal notranslate"><span class="pre">generate_page()</span></code></a></li>
+<li><a class="reference internal" href="#src.site_operations.generate_pages_recursive"><code class="docutils literal notranslate"><span class="pre">generate_pages_recursive()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.textnode">src.textnode module</a><ul>
+<li><a class="reference internal" href="#src.textnode.TextNode"><code class="docutils literal notranslate"><span class="pre">TextNode</span></code></a><ul>
+<li><a class="reference internal" href="#src.textnode.TextNode.__init__"><code class="docutils literal notranslate"><span class="pre">TextNode.__init__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.textnode.TextType"><code class="docutils literal notranslate"><span class="pre">TextType</span></code></a><ul>
+<li><a class="reference internal" href="#src.textnode.TextType.BOLD"><code class="docutils literal notranslate"><span class="pre">TextType.BOLD</span></code></a></li>
+<li><a class="reference internal" href="#src.textnode.TextType.CODE"><code class="docutils literal notranslate"><span class="pre">TextType.CODE</span></code></a></li>
+<li><a class="reference internal" href="#src.textnode.TextType.IMAGE"><code class="docutils literal notranslate"><span class="pre">TextType.IMAGE</span></code></a></li>
+<li><a class="reference internal" href="#src.textnode.TextType.ITALIC"><code class="docutils literal notranslate"><span class="pre">TextType.ITALIC</span></code></a></li>
+<li><a class="reference internal" href="#src.textnode.TextType.LINK"><code class="docutils literal notranslate"><span class="pre">TextType.LINK</span></code></a></li>
+<li><a class="reference internal" href="#src.textnode.TextType.TEXT"><code class="docutils literal notranslate"><span class="pre">TextType.TEXT</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.textnode.get_text_type_from_delimiter"><code class="docutils literal notranslate"><span class="pre">get_text_type_from_delimiter()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.transformation">src.transformation module</a><ul>
+<li><a class="reference internal" href="#src.transformation.extract_markdown_images"><code class="docutils literal notranslate"><span class="pre">extract_markdown_images()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.extract_markdown_links"><code class="docutils literal notranslate"><span class="pre">extract_markdown_links()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.markdown_to_blocks"><code class="docutils literal notranslate"><span class="pre">markdown_to_blocks()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.markdown_to_html_node"><code class="docutils literal notranslate"><span class="pre">markdown_to_html_node()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.process_code"><code class="docutils literal notranslate"><span class="pre">process_code()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.process_heading"><code class="docutils literal notranslate"><span class="pre">process_heading()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.process_olist"><code class="docutils literal notranslate"><span class="pre">process_olist()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.process_paragraph"><code class="docutils literal notranslate"><span class="pre">process_paragraph()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.process_quotes"><code class="docutils literal notranslate"><span class="pre">process_quotes()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.process_ulist"><code class="docutils literal notranslate"><span class="pre">process_ulist()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.split_text_image_into_text_nodes"><code class="docutils literal notranslate"><span class="pre">split_text_image_into_text_nodes()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.split_text_into_nodes_delimiter"><code class="docutils literal notranslate"><span class="pre">split_text_into_nodes_delimiter()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.split_text_links_into_text_nodes"><code class="docutils literal notranslate"><span class="pre">split_text_links_into_text_nodes()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.text_node_to_html_leaf_node"><code class="docutils literal notranslate"><span class="pre">text_node_to_html_leaf_node()</span></code></a></li>
+<li><a class="reference internal" href="#src.transformation.text_to_text_nodes"><code class="docutils literal notranslate"><span class="pre">text_to_text_nodes()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=8a448e45"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>
