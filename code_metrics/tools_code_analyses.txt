@@ -13,6 +13,7 @@ code2flow --exclude-functions __init__ ./src/* -o ./code_metrics/method_dependen
 code-metrics:
 radon
 lizard
+pylint
 
 To-do:
 Xenon CI integration

@@ -107,7 +107,7 @@ class HTMLNode:
         Raises:
             NotImplementedError: If called on the base HTMLNode class.
         """
-        
+                
         raise NotImplementedError('Method not defined for generic html node')
     
     def props_to_html(self):
